@@ -1,0 +1,35 @@
+extends ../index
+
+block content
+    h2 Animals List
+    // Responsive table container
+    div.table-responsive
+        table.table.table-hover
+            thead.thead-light
+                tr
+                    th#zoo Zoo Name
+                    th#scientific Scientific Name
+                    th#common Common Name
+                    th#given Given Name
+                    th#gender Gender
+                    th#birth Date of Birth
+                    th#age Age
+                    th#status Status
+                    th#action Action
+
+            tbody
+                each animal in animals
+                    tr
+                        td= animal.zoo
+                        td= animal.scientificName
+                        td= animal.commonName
+                        td= animal.givenName
+                        td= animal.gender
+                        td= formatDate(animal.dateOfBirth) // Use a utility function for formatting date
+                        td= animal.age
+                        td= animal.isTransportable ? 'Yes' : 'No'
+                        td
+                            a(href=`/animals/edit/${animal._id}` class="btn btn-sm btn-success") Edit
+
+    // Link to add a new animal
+    a(href='/animals/new' class="btn btn-info mt-3") Add New Animal

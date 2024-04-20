@@ -1,0 +1,59 @@
+extends ../index
+
+block content
+    section.animal-form-container
+        .container
+            .row.justify-content-center
+                .col-lg-6
+                    h2.mb-4 Enter New Animal Details
+                    form(action="/submit-animal", method="POST", class="needs-validation", novalidate)
+                        .form-group.mb-3
+                            label(for="zooField", class="form-label") Zoo Location
+                            input(type="text", class="form-control", id="zooField", name="zoo", placeholder="Enter zoo location", required, aria-describedby="zooHelp")
+                            small#zooHelp.form-text.text-muted We'll never share the zoo details with anyone else.
+
+                        .form-group.mb-3
+                            label(for="bioName", class="form-label") Scientific Name
+                            input(type="text", class="form-control", id="bioName", name="scientificName", placeholder="Enter scientific name", required)
+
+                        .form-group.mb-3
+                            label(for="nickname", class="form-label") Given Name
+                            input(type="text", class="form-control", id="nickname", name="givenName", placeholder="Enter given name", required)
+
+                        .form-group.mb-3
+                            label(for="commonNameField", class="form-label") Common Name
+                            input(type="text", class="form-control", id="commonNameField", name="commonName", placeholder="Enter common name", required)
+
+                        .mb-3
+                            fieldset
+                                legend Gender
+                                .form-check
+                                    input(type="radio", class="form-check-input", id="male", name="gender", value="Male")
+                                    label(for="male", class="form-check-label") Male
+
+                                .form-check
+                                    input(type="radio", class="form-check-input", id="female", name="gender", value="Female")
+                                    label(for="female", class="form-check-label") Female
+
+                        .form-group.mb-3
+                            label(for="dob", class="form-label") Date of Birth
+                            input(type="date", class="form-control", id="dob", name="dateOfBirth", required)
+
+                        .form-group.mb-3
+                            label(for="animalAge", class="form-label") Age
+                            input(type="number", class="form-control", id="animalAge", name="age", placeholder="Animal's age", required)
+
+                        .mb-3
+                            fieldset
+                                legend Transportable
+                                .form-check
+                                    input(type="radio", class="form-check-input", id="yesTransport", name="isTransportable", value="true")
+                                    label(for="yesTransport", class="form-check-label") Yes
+
+                                .form-check
+                                    input(type="radio", class="form-check-input", id="noTransport", name="isTransportable", value="false")
+                                    label(for="noTransport", class="form-check-label") No
+
+                        .d-flex.justify-content-between
+                            button(type="submit", class="btn btn-success") Submit
+                            button(type="reset", class="btn btn-secondary") Reset

@@ -1,0 +1,107 @@
+
+body, * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #e8eff1;
+    color: #5a5a5a;
+    font-size: 16px;
+    line-height: 1.8;
+    padding: 10px;
+}
+
+/* Core container for content alignment */
+.wrapper {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styling */
+header {
+    background-color: #2a2f33;
+    color: #ffffff;
+    padding: 20px 0;
+    border-bottom: 5px solid #f06529;
+}
+
+header .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+header .navigation a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0 15px;
+    font-weight: bold;
+}
+
+/* Styling for main content and navigation */
+main {
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+nav {
+    text-align: right;
+}
+
+/* Styles for form elements */
+form {
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 20px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+form .form-group {
+    margin-bottom: 15px;
+}
+
+form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="date"],
+form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cccccc;
+}
+
+/* Button styling */
+button, input[type="submit"] {
+    background-color: #2a2f33;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #f06529;
+}
+
+/* Responsive behavior */
+@media (max-width: 680px) {
+    .wrapper {
+        width: 100%;
+    }
+
+    header .navigation {
+        flex-direction: column;
+    }
+}
