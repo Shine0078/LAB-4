@@ -1,3 +1,13 @@
+
+//GROUP 4
+// Name:       Samuel Abraham & Sandeep Kumar
+// Student id: 100870571      & 100844683
+// Web Development -CSS
+// Durham college
+// 19/04/2024
+// LAB4
+// INFT2202
+// Student Final assignment
 const mongoose = require('mongoose');
 require('dotenv').config();
 
