@@ -1,20 +1,10 @@
-
-//GROUP 4
-// Name:       Samuel Abraham & Sandeep Kumar
-// Student id: 100870571      & 100844683
-// Web Development -CSS
-// Durham college
-// 19/04/2024
-// LAB4
-// INFT2202
-// Student Final assignment
 const express = require('express');
 const {
     viewAnimals,
-    showNewAnimalForm,
-    processNewAnimal,
-    showEditAnimalForm,
-    processAnimalUpdate,
+    showEntryForm,
+    addNewAnimal,
+    editAnimalForm,
+    updateAnimalDetails,
     processAnimalDeletion
 } = require('../controllers/animal.controller');
 
@@ -27,16 +17,16 @@ router.use(express.static('public'));
 router.get('/all-animals', viewAnimals);
 
 // Route to display the form for adding a new animal
-router.get('/entry-form', showNewAnimalForm);
+router.get('/entry-form', showEntryForm);
 
 // Route to handle the submission of the new animal form
-router.post('/entry-form', processNewAnimal);
+router.post('/entry-form', addNewAnimal);
 
 // Route to show the form for editing an existing animal, expects an ID
-router.get('/edit-animal', showEditAnimalForm);
+router.get('/edit-animal', editAnimalForm);
 
 // Route to handle the submission of the edited animal form
-router.post('/edit-animal-details', processAnimalUpdate);
+router.post('/edit-animal-details', updateAnimalDetails);
 
 // Route to handle the deletion of an animal, expects an ID
 router.delete('/delete-animal', processAnimalDeletion);

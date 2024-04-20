@@ -21,9 +21,9 @@ var Animal = require('../models/Animal');
  */
 
 
-function getAllAnimals(req, res) {
+function viewAnimals(req, res) {
   var animals;
-  return regeneratorRuntime.async(function getAllAnimals$(_context) {
+  return regeneratorRuntime.async(function viewAnimals$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
@@ -33,7 +33,7 @@ function getAllAnimals(req, res) {
 
         case 3:
           animals = _context.sent;
-          res.render('animals/all', {
+          res.render('animals/all-animals', {
             pageTitle: 'List of All Animals',
             animals: animals
           });
@@ -59,7 +59,7 @@ function getAllAnimals(req, res) {
 
 
 function showEntryForm(req, res) {
-  res.render('animals/entry', {
+  res.render('animals/entry-form', {
     pageTitle: 'Enter New Animal'
   });
 }
@@ -82,7 +82,7 @@ function addNewAnimal(req, res) {
           return regeneratorRuntime.awrap(newAnimal.save());
 
         case 4:
-          res.redirect('/animals');
+          res.redirect('animals/entry-form');
           _context2.next = 11;
           break;
 
@@ -125,7 +125,7 @@ function editAnimalForm(req, res) {
           return _context3.abrupt("return", res.status(404).send('Animal not found'));
 
         case 6:
-          res.render('animals/edit', {
+          res.render('animals/eedit-animal', {
             pageTitle: 'Edit Animal Details',
             animal: animal
           });
@@ -176,7 +176,7 @@ function updateAnimalDetails(req, res) {
           return _context4.abrupt("return", res.status(404).send('Animal not found'));
 
         case 7:
-          res.redirect('/animals');
+          res.redirect('animals/edit-animal-details');
           _context4.next = 14;
           break;
 
@@ -198,8 +198,8 @@ function updateAnimalDetails(req, res) {
  */
 
 
-function deleteAnimal(req, res) {
-  return regeneratorRuntime.async(function deleteAnimal$(_context5) {
+function processAnimalDeletion(req, res) {
+  return regeneratorRuntime.async(function processAnimalDeletion$(_context5) {
     while (1) {
       switch (_context5.prev = _context5.next) {
         case 0:
@@ -208,7 +208,7 @@ function deleteAnimal(req, res) {
           return regeneratorRuntime.awrap(Animal.findByIdAndDelete(req.params.id));
 
         case 3:
-          res.redirect('/animals');
+          res.redirect('animals/delete-animal');
           _context5.next = 10;
           break;
 
@@ -228,11 +228,11 @@ function deleteAnimal(req, res) {
 
 
 module.exports = {
-  getAllAnimals: getAllAnimals,
+  viewAnimals: viewAnimals,
   showEntryForm: showEntryForm,
   addNewAnimal: addNewAnimal,
   editAnimalForm: editAnimalForm,
   updateAnimalDetails: updateAnimalDetails,
-  deleteAnimal: deleteAnimal
+  processAnimalDeletion: processAnimalDeletion
 };
 //# sourceMappingURL=animal.controller.dev.js.map

@@ -8,14 +8,19 @@
 // INFT2202
 // Student Final assignment
 
+
+
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const path = require('path');
 const session = require('express-session');
-const passport = require('passport');
+
 const animal = require('./routes/animal.router');
+
+
 // Load environment variables from .env file
 dotenv.config();
 
@@ -28,8 +33,8 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // Use bodyParser middleware to parse JSON and url-encoded requests
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(pug.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Static folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -41,9 +46,7 @@ app.use(session({
     saveUninitialized: true
 }));
 
-// Passport initialization
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 // Set view engine
 app.set('view engine', 'pug');

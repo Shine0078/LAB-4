@@ -21,8 +21,6 @@ var path = require('path');
 
 var session = require('express-session');
 
-var passport = require('passport');
-
 var animal = require('./routes/animal.router'); // Load environment variables from .env file
 
 
@@ -37,8 +35,8 @@ mongoose.connect(process.env.MONGODB_URI, {
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:')); // Use bodyParser middleware to parse JSON and url-encoded requests
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
+app.use(pug.json());
+app.use(express.urlencoded({
   extended: true
 })); // Static folder
 
@@ -48,10 +46,7 @@ app.use(session({
   secret: 'secret',
   resave: false,
   saveUninitialized: true
-})); // Passport initialization
-
-app.use(passport.initialize());
-app.use(passport.session()); // Set view engine
+})); // Set view engine
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views')); // Define routes
